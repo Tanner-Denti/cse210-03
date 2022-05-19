@@ -8,9 +8,9 @@ namespace game
     /// </summary>
     public class Director
     {
-        private Hider hider = new Hider();
+        private Jumper jumper = new Jumper();
         private bool isPlaying = true;
-        private Seeker seeker = new Seeker();
+        private SecretWord secretword = new SecretWord();
         private TerminalService terminalService = new TerminalService();
 
         /// <summary>
