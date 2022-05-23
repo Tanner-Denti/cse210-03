@@ -38,9 +38,7 @@ namespace game
         /// </summary>
         private void GetInputs()
         {
-            terminalService.WriteText(hider.location.ToString());
-            int location = terminalService.ReadNumber("\nEnter a location [1-1000]: ");
-            seeker.MoveLocation(location);
+            string guess = terminalService.ReadText("Enter your guess: ");
         }
 
         /// <summary>
@@ -48,7 +46,6 @@ namespace game
         /// </summary>
         private void DoUpdates()
         {
-            hider.WatchSeeker(seeker);
         }
 
         /// <summary>
@@ -56,12 +53,6 @@ namespace game
         /// </summary>
         private void DoOutputs()
         {
-            string hint = hider.GetHint();
-            terminalService.WriteText(hint);
-            if (hider.IsFound())
-            {
-                isPlaying = false;
-            }
             
         }
     }

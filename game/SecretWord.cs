@@ -2,30 +2,42 @@ namespace game
 {
     public class SecretWord
     {
-        string[] words;
         private List<string> wordlist = new List<string>();
         int index;
         string word;
+        string guess;
+        Random random = new Random();
 
         public SecretWord()
         {
-            Random random = new Random();
-            words = System.IO.File.ReadAllLines("words.txt");
+            string[] words = System.IO.File.ReadAllLines("words.txt");
+            wordlist = new List<string>(words);
+            guess = " ";
             word = " ";
-            foreach (string word in words)
-            {
-                wordlist.Add(word);
-            }
             
         }
 
         private string ChooseWord()
         {
-            index = Random.Next(wordlist.Count);
+            index = random.Next(wordlist.Count);
             word = wordlist[index];
             return word;
         }
 
+        public void GetGuess()
+        {
+            
+        }
+
+        private void UpdateGuess()
+        {
+
+        }
+
+        public Boolean ContainsLetter(Char letter)
+        {
+            return word.Contains(letter);
+        }
         
     }
 }
