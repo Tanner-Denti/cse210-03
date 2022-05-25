@@ -1,11 +1,12 @@
-﻿
+﻿using System;
+
 namespace Program
 {
     class Program
     {
-        static void Main()
+        public static void Main()
         {
-
+            
         }
     }
 }

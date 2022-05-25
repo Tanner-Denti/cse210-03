@@ -3,30 +3,44 @@ namespace game
     public class Jumper
     {
         bool isAlive;
-        private List<string> jumper = new List<string>();
+        private List<string> parachute = new List<string>();
         int guessCount;
+
         public Jumper()
         {
             isAlive = true;
             guessCount = 0;
-            string[] parachute = new string[]{"  ---  "," /   \\ ","  ---  "," \\   / ","  \\ /  ","   o   ","  /|\\  ","  / \\  ","       ","^^^^^^^"};
-            jumper.AddRange(parachute) ;
+            string[] parachuteParts = new string[]{"  ---  ",
+                                              " /   \\ ",
+                                              "  ---  ",
+                                              " \\   / ",
+                                              "  \\ /  ",
+                                              "   o   ",
+                                              "  /|\\  ",
+                                              "  / \\  ",
+                                              "       ",
+                                              "^^^^^^^"};
+            parachute.AddRange(parachuteParts) ;
         }
         // guess parameter will be boolean from secretWord letter guess.
-        public void removeLine(bool guess){
-            if(guess == false){
-                jumper.RemoveAt(0);
+        
+        //takes away the top line of the parachute drawing
+        public void removeLine(){
+                parachute.RemoveAt(0);
             }
-        }
-        private void countGuesses(){
+            
+        //counts up for each wrong guess to be used in guessesRemaining
+        public void wrongGuesses(){
             guessCount+= 1;
         }
-        private void guessRemaining(int guessCount){
+        
+        // checks the guessCount value for 5 or more guesses. When that condition is met,
+        // sets the game state, "isAlive" to false
+        public void gameOver(){
             if (guessCount >= 5){
                 isAlive = false;
             }
         }
-
         
     }
 }

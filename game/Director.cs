@@ -7,12 +7,13 @@ namespace game
     /// </para>
     /// </summary>
     public class Director
-    {
+    {   
         private Jumper jumper = new Jumper();
         private bool isPlaying = true;
         private SecretWord secretword = new SecretWord();
         private TerminalService terminalService = new TerminalService();
 
+        private char guess;
         /// <summary>
         /// Constructs a new instance of Director.
         /// </summary>
@@ -34,22 +35,32 @@ namespace game
         }
 
         /// <summary>
-        /// Moves the seeker to a new location.
+        /// Gets the player's guess
         /// </summary>
         private void GetInputs()
         {
-            string guess = terminalService.ReadText("Enter your guess: ");
+            guess = char.Parse(terminalService.ReadText("Enter your guess: "));
         }
 
         /// <summary>
-        /// Keeps watch on where the seeker is moving.
+        /// 
         /// </summary>
         private void DoUpdates()
         {
+            if (secretword.ContainsLetter(guess))
+            {
+                secretword.UpdateGuess();
+            }
+            else
+            {
+                jumper.removeLine();
+                jumper.wrongGuesses();
+                jumper.gameOver();
+            }
         }
 
         /// <summary>
-        /// Provides a hint for the seeker to use.
+        /// 
         /// </summary>
         private void DoOutputs()
         {
