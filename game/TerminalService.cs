@@ -48,5 +48,24 @@ namespace game
         {
             Console.WriteLine(text);
         }
+
+        public void WriteListOneLine(List<string> words)  
+        {   
+            for (int i = 0; i < words.Count; i++)
+            {
+                Console.Write(words[i]);
+            }
+        }
+
+        public void WriteListManyLines(List<string> words) 
+        {   
+            for (int i = 0; i < words.Count; i++)
+            {
+                Console.WriteLine(words[i]);
+            }
+        }
+
+
+
     }
 }

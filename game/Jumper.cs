@@ -2,7 +2,7 @@ namespace game
 {
     public class Jumper
     {
-        bool isAlive;
+        public bool isAlive;
         private List<string> parachute = new List<string>();
         int guessCount;
 
@@ -42,5 +42,10 @@ namespace game
             }
         }
         
+        public List<string> getParachute()
+        {
+            return parachute;
+        }
+
     }
 }

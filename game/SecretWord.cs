@@ -13,7 +13,7 @@ namespace game
         private List<string> wordlist;
         private List<string> guessList;
         int index;
-        string word;
+        public string word;
         string guess;
         Random random = new Random();
 
@@ -23,7 +23,7 @@ namespace game
         public SecretWord()
         {
             //Create an array from the words txt file and then add it to a list
-            string[] words = System.IO.File.ReadAllLines("words.txt");
+            string[] words = System.IO.File.ReadAllLines("game/Words.txt");
             wordlist = new List<string>(words);
             //
             guessList = new List<string>();
@@ -65,6 +65,11 @@ namespace game
                     guessList[i] = Convert.ToString(word[i]);
                 }
             }
+        }
+
+        public List<string> GetGuessList()
+        {
+            return guessList;
         }
 
         /// <summary>

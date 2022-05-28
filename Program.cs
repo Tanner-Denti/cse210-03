@@ -1,4 +1,5 @@
 ﻿using System;
+using game;
 
 namespace Program
 {
@@ -6,7 +7,8 @@ namespace Program
     {
         public static void Main()
         {
-            
+            Director director = new Director();
+            director.StartGame();
         }
     }
 }

@@ -49,7 +49,7 @@ namespace game
         {
             if (secretword.ContainsLetter(guess))
             {
-                secretword.UpdateGuess();
+                secretword.UpdateGuess(Convert.ToString(guess), secretword.word);
             }
             else
             {
@@ -57,14 +57,21 @@ namespace game
                 jumper.wrongGuesses();
                 jumper.gameOver();
             }
+
+            if (jumper.isAlive == false)
+            {
+                isPlaying = false;
+            }
         }
 
         /// <summary>
         /// 
         /// </summary>
         private void DoOutputs()
-        {
-            
+        {   
+            terminalService.WriteListOneLine(secretword.GetGuessList());
+            terminalService.WriteText("");
+            terminalService.WriteListManyLines(jumper.getParachute());
         }
     }
 }
