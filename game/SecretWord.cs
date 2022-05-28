@@ -48,14 +48,14 @@ namespace game
         }
 
 
-        private void CreateUnderscores() 
+        public void CreateUnderscores() 
         {
             for (int i = 0; i < word.Length; i++)
             {
                 guessList.Add("_");
             }
         }
-        private void UpdateGuess(string guess, string word) //TANNER FINISH THIS
+        public void UpdateGuess(string guess, string word) //TANNER FINISH THIS
         {
             
             for (int i = 0; i < word.Length; i++)
