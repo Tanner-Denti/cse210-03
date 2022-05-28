@@ -12,6 +12,9 @@ namespace game
         private bool isPlaying = true;
         private SecretWord secretword = new SecretWord();
         private TerminalService terminalService = new TerminalService();
+        private List<string> guessList = new List<string>();
+        private List<string> parachute = new List<string>();
+
 
         private char guess;
         /// <summary>
@@ -19,6 +22,8 @@ namespace game
         /// </summary>
         public Director()
         {
+            this.guessList = secretword.GetGuessList();
+            this.parachute = jumper.getParachute();
         }
 
         /// <summary>
@@ -69,9 +74,9 @@ namespace game
         /// </summary>
         private void DoOutputs()
         {   
-            terminalService.WriteListOneLine(secretword.GetGuessList());
+            terminalService.WriteListOneLine(this.guessList);
             terminalService.WriteText("");
-            terminalService.WriteListManyLines(jumper.getParachute());
+            terminalService.WriteListManyLines(this.parachute);
         }
     }
 }
