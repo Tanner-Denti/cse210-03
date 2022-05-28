@@ -48,21 +48,21 @@ namespace game
         }
 
 
-        private void CreateUnderscores() //TANNER FINISH THIS
+        private void CreateUnderscores() 
         {
             for (int i = 0; i < word.Length; i++)
             {
-                //make the guess list full of underscores
+                guessList.Add("_");
             }
         }
         private void UpdateGuess(string guess, string word) //TANNER FINISH THIS
         {
-            char letter = Convert.ToChar(guess);
+            
             for (int i = 0; i < word.Length; i++)
             {
-                if (letter == word[i])
+                if (guess == Convert.ToString(word[i]))
                 {
-                    
+                    guessList[i] = Convert.ToString(word[i]);
                 }
             }
         }
