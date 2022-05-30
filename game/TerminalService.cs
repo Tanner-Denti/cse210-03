@@ -55,6 +55,8 @@ namespace game
             {
                 Console.Write(words[i]);
             }
+            // Creates separation line
+            Console.WriteLine();
         }
 
         public void WriteListManyLines(List<string> words) 
@@ -65,7 +67,9 @@ namespace game
             }
         }
 
-
-
+        public void WriteWinLine()
+        {
+            Console.WriteLine("Congragulations, you've guessed the word!");
+        }
     }
 }
