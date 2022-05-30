@@ -15,6 +15,8 @@ namespace game
         int index;
         public string word;
         string guess;
+
+        public bool wordGuessed;
         Random random = new Random();
 
         /// <summary>
@@ -25,12 +27,18 @@ namespace game
             //Create an array from the words txt file and then add it to a list
             string[] words = System.IO.File.ReadAllLines("game/Words.txt");
             wordlist = new List<string>(words);
-            //
+            //Creates an array for player guesses that will update with correct guesses
             guessList = new List<string>();
+            
             guess = "";
             word = "";
+
+            //Sets the current win condition to false
+            wordGuessed = false;
+
             //Choose a random word from the words list
             ChooseWord();
+            CreateUnderscores();
             
         }
         /// <summary>
@@ -55,7 +63,7 @@ namespace game
                 guessList.Add("_");
             }
         }
-        public void UpdateGuess(string guess, string word) //TANNER FINISH THIS
+        public void UpdateGuess(string guess, string word)
         {
             
             for (int i = 0; i < word.Length; i++)
@@ -70,6 +78,15 @@ namespace game
         public List<string> GetGuessList()
         {
             return guessList;
+        }
+
+        // Checks if the player still has any letters to guess. Returns a boolean.
+        public void gameWon(List<string> guessList)
+        {
+            if (guessList.Contains("_") == false)
+            {
+                wordGuessed = true;
+            }
         }
 
         /// <summary>

@@ -15,7 +15,6 @@ namespace game
         private List<string> guessList = new List<string>();
         private List<string> parachute = new List<string>();
 
-
         private char guess;
         /// <summary>
         /// Constructs a new instance of Director.
@@ -54,13 +53,19 @@ namespace game
         {
             if (secretword.ContainsLetter(guess))
             {
-                secretword.UpdateGuess(Convert.ToString(guess), secretword.word);
+                secretword.UpdateGuess(Convert.ToString(guess),secretword.word);
+                secretword.gameWon(guessList);
             }
             else
             {
                 jumper.removeLine();
                 jumper.wrongGuesses();
                 jumper.gameOver();
+            }
+
+            if(secretword.wordGuessed == true)
+            {
+                isPlaying = false;
             }
 
             if (jumper.isAlive == false)
@@ -77,6 +82,10 @@ namespace game
             terminalService.WriteListOneLine(this.guessList);
             terminalService.WriteText("");
             terminalService.WriteListManyLines(this.parachute);
+            if (secretword.wordGuessed == true)
+            {
+                terminalService.WriteWinLine();
+            }
         }
     }
 }
