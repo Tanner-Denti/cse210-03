@@ -40,6 +40,7 @@ namespace game
             return Console.ReadLine();
         }
 
+
         /// <summary>
         /// Displays the given text on the terminal. 
         /// </summary>

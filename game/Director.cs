@@ -14,6 +14,8 @@ namespace game
         private TerminalService terminalService = new TerminalService();
         private List<string> guessList = new List<string>();
         private List<string> parachute = new List<string>();
+        private string userInput;
+        private bool valid = false;
 
         private char guess;
         /// <summary>
@@ -23,6 +25,7 @@ namespace game
         {
             this.guessList = secretword.GetGuessList();
             this.parachute = jumper.getParachute();
+            userInput = "";
         }
 
         /// <summary>
@@ -43,7 +46,17 @@ namespace game
         /// </summary>
         private void GetInputs()
         {
-            guess = char.Parse(terminalService.ReadText("Enter your guess: "));
+            userInput = terminalService.ReadText("Enter your guess: ");            
+            terminalService.WriteText(" ");
+            
+            while (!char.TryParse(userInput, out guess))
+            {
+                terminalService.WriteText("Invalid input");
+                userInput = terminalService.ReadText("Enter your guess: ");
+                terminalService.WriteText(" ");
+            }
+
+
         }
 
         /// <summary>
