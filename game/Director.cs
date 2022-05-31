@@ -48,7 +48,7 @@ namespace game
         {
             userInput = terminalService.ReadText("Enter your guess: ");            
             terminalService.WriteText(" ");
-            
+
             while (!char.TryParse(userInput, out guess))
             {
                 terminalService.WriteText("Invalid input");
@@ -99,9 +99,9 @@ namespace game
             {
                 terminalService.WriteWinLine();
             }
-            if (isPlaying == false)
+            if (jumper.isAlive == false)
             {
-                terminalService.WriteText("Game Over. Try Again!");
+                terminalService.WriteText("Game Over. Try Again!");                
             }
         }
     }
