@@ -86,6 +86,10 @@ namespace game
             {
                 terminalService.WriteWinLine();
             }
+            if (isPlaying == false)
+            {
+                terminalService.WriteText("Game Over. Try Again!");
+            }
         }
     }
 }
