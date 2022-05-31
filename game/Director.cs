@@ -15,7 +15,7 @@ namespace game
         private List<string> guessList = new List<string>();
         private List<string> parachute = new List<string>();
         private string userInput;
-        private bool valid = false;
+        private int valid;
 
         private char guess;
         /// <summary>
@@ -48,6 +48,13 @@ namespace game
         {
             userInput = terminalService.ReadText("Enter your guess: ");            
             terminalService.WriteText(" ");
+
+            while(int.TryParse(userInput, out valid))
+            {
+                terminalService.WriteText("Invalid input");
+                userInput = terminalService.ReadText("Enter your guess: ");
+                terminalService.WriteText(" ");                
+            }
 
             while (!char.TryParse(userInput, out guess))
             {
