@@ -108,7 +108,7 @@ namespace game
             }
             if (jumper.isAlive == false)
             {
-                terminalService.WriteText("Game Over. Try Again!");                
+                terminalService.WriteText($"Game Over. The correct word was: {secretword.GetWord()}.");                
             }
         }
     }

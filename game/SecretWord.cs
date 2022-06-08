@@ -55,6 +55,10 @@ namespace game
             return guess;
         }
 
+        public string GetWord()
+        {
+            return word;
+        }
 
         public void CreateUnderscores() 
         {
